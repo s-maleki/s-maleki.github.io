@@ -1,0 +1,160 @@
+/* ============================================================
+   DESIGN TOKENS — Amber/Tube amp palette + dark-first
+   ============================================================ */
+
+:root,
+[data-theme='dark'] {
+  /* Surfaces — deep charcoal, warm undertone */
+  --color-bg: #0e0d0b;
+  --color-surface: #141310;
+  --color-surface-2: #1a1916;
+  --color-surface-offset: #1f1e1b;
+  --color-surface-offset-2: #252420;
+  --color-surface-dynamic: #2e2c28;
+  --color-divider: #2a2825;
+  --color-border: #3a3834;
+
+  /* Text */
+  --color-text: #e8e4dc;
+  --color-text-muted: #8a8680;
+  --color-text-faint: #504e49;
+  --color-text-inverse: #0e0d0b;
+
+  /* Primary Accent — amber/golden tube glow */
+  --color-primary: #d4870a;
+  --color-primary-hover: #e89c1a;
+  --color-primary-active: #f5b030;
+  --color-primary-highlight: #2d2318;
+
+  /* Secondary — oscilloscope green */
+  --color-secondary: #3d8b60;
+  --color-secondary-hover: #4fa876;
+  --color-secondary-highlight: #1a2d22;
+
+  /* Error / Warning */
+  --color-error: #c9423a;
+  --color-error-highlight: #2d1a18;
+  --color-success: #4fa876;
+  --color-success-highlight: #1a2d22;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.4);
+  --shadow-md: 0 4px 16px oklch(0 0 0 / 0.5);
+  --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.6);
+  --shadow-glow: 0 0 20px oklch(from #d4870a l c h / 0.2);
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='light'] {
+  --color-bg: #f8f6f0;
+  --color-surface: #faf8f3;
+  --color-surface-2: #fdfcf9;
+  --color-surface-offset: #f1ede4;
+  --color-surface-offset-2: #e9e4da;
+  --color-surface-dynamic: #ddd9cf;
+  --color-divider: #d6d1c7;
+  --color-border: #c8c3b8;
+
+  --color-text: #1c1a15;
+  --color-text-muted: #6e6b63;
+  --color-text-faint: #b0ac9f;
+  --color-text-inverse: #f8f6f0;
+
+  --color-primary: #a36208;
+  --color-primary-hover: #bf750d;
+  --color-primary-active: #d4870a;
+  --color-primary-highlight: #fde8c4;
+
+  --color-secondary: #2a6b47;
+  --color-secondary-hover: #3d8b60;
+  --color-secondary-highlight: #d0edd9;
+
+  --color-error: #b73830;
+  --color-error-highlight: #fde8e7;
+  --color-success: #2a6b47;
+  --color-success-highlight: #d0edd9;
+
+  --shadow-sm: 0 1px 2px oklch(0.2 0.02 80 / 0.08);
+  --shadow-md: 0 4px 12px oklch(0.2 0.02 80 / 0.10);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.02 80 / 0.14);
+  --shadow-glow: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-bg: #f8f6f0;
+    --color-surface: #faf8f3;
+    --color-surface-2: #fdfcf9;
+    --color-surface-offset: #f1ede4;
+    --color-surface-offset-2: #e9e4da;
+    --color-surface-dynamic: #ddd9cf;
+    --color-divider: #d6d1c7;
+    --color-border: #c8c3b8;
+    --color-text: #1c1a15;
+    --color-text-muted: #6e6b63;
+    --color-text-faint: #b0ac9f;
+    --color-text-inverse: #f8f6f0;
+    --color-primary: #a36208;
+    --color-primary-hover: #bf750d;
+    --color-primary-active: #d4870a;
+    --color-primary-highlight: #fde8c4;
+    --color-secondary: #2a6b47;
+    --color-secondary-hover: #3d8b60;
+    --color-secondary-highlight: #d0edd9;
+    --color-error: #b73830;
+    --color-error-highlight: #fde8e7;
+    --color-success: #2a6b47;
+    --color-success-highlight: #d0edd9;
+    --shadow-sm: 0 1px 2px oklch(0.2 0.02 80 / 0.08);
+    --shadow-md: 0 4px 12px oklch(0.2 0.02 80 / 0.10);
+    --shadow-lg: 0 12px 32px oklch(0.2 0.02 80 / 0.14);
+    --shadow-glow: none;
+  }
+}
+
+/* Type Scale */
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Fonts */
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body:    'Geist', 'Inter', system-ui, sans-serif;
+
+  /* Content widths */
+  --content-narrow:  640px;
+  --content-default: 960px;
+  --content-wide:    1200px;
+}

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sassan — AI Researcher, Engineer & Maker</title>
+  <meta name="description" content="PhD in Computer Science (AI). Data Science & AI team lead. Builder of circuits, synthesizers, and intelligent systems." />
+  <meta property="og:title" content="Sassan — AI Researcher, Engineer & Maker" />
+  <meta property="og:description" content="PhD in CS/AI. Building intelligent systems, analog circuits, and DSP projects." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://yourusername.github.io" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=geist@300,400,500,600&display=swap" rel="stylesheet" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23d4870a'/><text x='6' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%230e0d0b'>S</text></svg>" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/home.css" />
+
+  <!-- Theme: apply before paint to prevent flash -->
+  <script>
+    (function(){
+      var stored = null;
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER
+  ====================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="/" class="nav-logo" aria-label="Sassan — home">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <!-- Custom S-mark logo: sine wave through a circle -->
+            <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 18.5 C9 18.5 10.5 20 13 20 C15.5 20 17 18.5 17 17 C17 15.5 15.5 14.5 13 14 C10.5 13.5 9 12.5 9 11 C9 9.5 10.5 8 13 8 C15.5 8 17 9.5 17 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span>sassan</span>
+        </a>
+
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======================================================
+         HERO
+    ====================================================== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="hero-eyebrow">
+              <span class="hero-eyebrow-dot"></span>
+              Frankfurt, DE
+            </p>
+            <h1 class="hero-heading" id="hero-heading">
+              Building intelligent<br>systems &amp; analog<br>
+              <em>things that oscillate</em>
+            </h1>
+            <p class="hero-sub">
+              PhD in Computer Science (AI). Head of Data Science &amp; AI at a fintech company.
+              I work at the intersection of machine learning, embedded DSP, and analog circuit design —
+              with occasional detours into Gilmour-style guitar tones.
+            </p>
+            <div class="hero-cta">
+              <a href="#work" class="btn btn--primary">See my work</a>
+              <a href="blog/" class="btn btn--ghost">Read the blog</a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-circuit-art">
+              <!-- Decorative oscilloscope / circuit art SVG -->
+              <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="circuit-svg">
+                <!-- Grid -->
+                <defs>
+                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+                  </pattern>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <rect width="400" height="320" fill="url(#grid)" rx="8"/>
+
+                <!-- Oscilloscope bezel -->
+                <rect x="20" y="20" width="360" height="280" rx="6" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+
+                <!-- Sine wave path -->
+                <path class="osc-wave"
+                  d="M 30 160 C 50 160 50 80 80 80 C 110 80 110 240 140 240 C 170 240 170 80 200 80 C 230 80 230 240 260 240 C 290 240 290 80 320 80 C 350 80 350 160 370 160"
+                  stroke="#d4870a" stroke-width="2.5" filter="url(#glow)" stroke-linecap="round"/>
+
+                <!-- Horizontal axis -->
+                <line x1="30" y1="160" x2="370" y2="160" stroke="currentColor" stroke-width="0.8" opacity="0.3" stroke-dasharray="4 4"/>
+
+                <!-- Vertical markers -->
+                <line x1="80" y1="145" x2="80" y2="175" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+                <line x1="200" y1="145" x2="200" y2="175" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+                <line x1="320" y1="145" x2="320" y2="175" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+
+                <!-- Labels -->
+                <text x="32" y="300" font-family="'JetBrains Mono', monospace" font-size="9" fill="currentColor" opacity="0.35">CH1  5ms/div  2V/div</text>
+                <text x="310" y="300" font-family="'JetBrains Mono', monospace" font-size="9" fill="currentColor" opacity="0.35">440Hz</text>
+
+                <!-- Corner decorations -->
+                <path d="M 30 50 L 30 30 L 50 30" stroke="currentColor" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+                <path d="M 370 50 L 370 30 L 350 30" stroke="currentColor" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+                <path d="M 30 270 L 30 290 L 50 290" stroke="currentColor" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+                <path d="M 370 270 L 370 290 L 350 290" stroke="currentColor" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+
+                <!-- Data labels floating -->
+                <text x="72" y="74" font-family="'JetBrains Mono', monospace" font-size="8" fill="#d4870a" opacity="0.7">pk +2V</text>
+                <text x="72" y="252" font-family="'JetBrains Mono', monospace" font-size="8" fill="#d4870a" opacity="0.7">pk -2V</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat strip -->
+        <div class="hero-stats" role="list">
+          <div class="stat" role="listitem">
+            <span class="stat-value">PhD</span>
+            <span class="stat-label">Computer Science / AI</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat" role="listitem">
+            <span class="stat-value">10+</span>
+            <span class="stat-label">Years in AI/ML</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat" role="listitem">
+            <span class="stat-value">ESP32</span>
+            <span class="stat-label">Daisy Seed DSP projects</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat" role="listitem">
+            <span class="stat-value">∿</span>
+            <span class="stat-label">Analog circuit design</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         ABOUT
+    ====================================================== -->
+    <section class="section about-section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-left">
+            <p class="section-label">About</p>
+            <h2 class="section-title" id="about-heading">A researcher who builds things with hands, not just models</h2>
+          </div>
+          <div class="about-right">
+            <p class="about-body">
+              I hold a PhD in Computer Science with a focus on artificial intelligence, and lead a
+              data science &amp; AI team at a fintech company working on credit and BNPL products.
+              Day-to-day I work across ML systems, LLM integrations, ClickHouse &amp; PostgreSQL pipelines,
+              and Kafka-based data infrastructure.
+            </p>
+            <p class="about-body">
+              Outside the office, I design and build analog circuits — guitar effects, tube amplifier stages,
+              and synthesizer modules. I write firmware for ESP32 and Daisy Seed microcontrollers
+              with a focus on real-time audio DSP. The same signal-processing intuition that informs
+              my ML work shows up in how I think about filter design and harmonic generation.
+            </p>
+            <p class="about-body">
+              I play electric guitar in the spirit of David Gilmour — long, sustained notes over
+              carefully crafted effects chains. Some of those effects I built myself.
+            </p>
+            <div class="about-links">
+              <a href="mailto:the.sassan@gmail.com" class="btn btn--ghost btn--sm">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+                Email me
+              </a>
+              <a href="https://github.com/yourusername" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SKILLS / STACK
+    ====================================================== -->
+    <section class="section skills-section" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <p class="section-label">Stack &amp; Expertise</p>
+        <h2 class="section-title" id="skills-heading">What I work with</h2>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">Machine Learning &amp; AI</h3>
+            <p class="skill-body">LLMs, neural networks, recommendation systems, credit scoring models. Python, PyTorch, scikit-learn.</p>
+            <div class="skill-tags">
+              <span class="tag tag--amber">PyTorch</span>
+              <span class="tag">LLMs</span>
+              <span class="tag">MLOps</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">Data Infrastructure</h3>
+            <p class="skill-body">ClickHouse, PostgreSQL, Kafka, materialized views, query optimization, and scalable analytics pipelines.</p>
+            <div class="skill-tags">
+              <span class="tag tag--amber">ClickHouse</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Kafka</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">Embedded Systems &amp; DSP</h3>
+            <p class="skill-body">Real-time audio processing on ESP32, Daisy Seed, STM32. FIR/IIR filters, pitch shifting, reverb algorithms.</p>
+            <div class="skill-tags">
+              <span class="tag tag--green">ESP32</span>
+              <span class="tag tag--green">Daisy Seed</span>
+              <span class="tag">DSP</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">Analog Circuit Design</h3>
+            <p class="skill-body">Tube amplifier circuits, guitar effects (compressors, overdrives, modulation), synthesizer VCO/VCF/VCA modules.</p>
+            <div class="skill-tags">
+              <span class="tag tag--amber">Tube Amps</span>
+              <span class="tag">Guitar FX</span>
+              <span class="tag">Synth Modules</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">Infrastructure &amp; DevOps</h3>
+            <p class="skill-body">Docker, Kubernetes, Linux/macOS, SSH tunneling, network configuration. Building and managing production AI systems.</p>
+            <div class="skill-tags">
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="skill-title">Signal Processing</h3>
+            <p class="skill-body">Spectral analysis, filter design (analog and digital), FFT-based processing, harmonic analysis. The math lives in both domains.</p>
+            <div class="skill-tags">
+              <span class="tag tag--green">FFT</span>
+              <span class="tag">Filter Design</span>
+              <span class="tag">MATLAB/Python</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         FEATURED WORK
+    ====================================================== -->
+    <section class="section work-section" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="work-header">
+          <div>
+            <p class="section-label">Featured Work</p>
+            <h2 class="section-title" id="work-heading">Selected projects</h2>
+          </div>
+          <a href="blog/" class="btn btn--ghost">View all posts →</a>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card work-card--featured">
+            <div class="work-card-label">
+              <span class="tag tag--amber">Machine Learning</span>
+              <span class="tag">Fintech</span>
+            </div>
+            <h3 class="work-card-title">Real-Time Credit Scoring with LLM Feature Enrichment</h3>
+            <p class="work-card-body">
+              Designing and deploying a hybrid credit risk model that combines traditional tabular ML with
+              LLM-enriched behavioral features. The system runs inference at &lt;50ms with ClickHouse-backed
+              feature stores.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2025</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-card-label">
+              <span class="tag tag--green">Embedded DSP</span>
+            </div>
+            <h3 class="work-card-title">Daisy Seed Polyphonic Reverb Engine</h3>
+            <p class="work-card-body">
+              A plate reverb algorithm implemented on the Daisy Seed microcontroller for a custom eurorack module.
+              Uses a network of allpass filters and Schroeder combs with adjustable pre-delay and diffusion.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2024</span>
+              <a href="https://github.com/yourusername" class="work-card-link" target="_blank" rel="noopener">
+                GitHub →
+              </a>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-card-label">
+              <span class="tag tag--amber">Analog</span>
+            </div>
+            <h3 class="work-card-title">Engineer's Thumb — Low-Noise Guitar Compressor</h3>
+            <p class="work-card-body">
+              A custom JFET-based compressor pedal inspired by the Ross and Dynacomp topology,
+              redesigned for low-noise operation and Gilmour-style sustain. Full simulation in LTSpice
+              before PCB layout.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2024</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-card-label">
+              <span class="tag">Data Engineering</span>
+            </div>
+            <h3 class="work-card-title">ClickHouse Materialized View Pipeline for Behavioral Analytics</h3>
+            <p class="work-card-body">
+              Architecting a streaming analytics pipeline using Kafka → ClickHouse materialized views
+              for real-time user behavior features used in downstream ML models.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2024</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         BLOG PREVIEW
+    ====================================================== -->
+    <section class="section blog-preview-section" id="blog-preview" aria-labelledby="blog-preview-heading">
+      <div class="container">
+        <div class="work-header">
+          <div>
+            <p class="section-label">Writing</p>
+            <h2 class="section-title" id="blog-preview-heading">Latest posts</h2>
+          </div>
+          <a href="blog/" class="btn btn--ghost">All posts →</a>
+        </div>
+
+        <div class="blog-preview-list">
+          <a href="posts/allpass-reverb-daisy.html" class="blog-preview-item">
+            <div class="blog-preview-meta">
+              <span class="tag tag--green">Tutorial</span>
+              <time class="blog-date" datetime="2025-11-10">Nov 2025</time>
+            </div>
+            <h3 class="blog-preview-title">Building a Plate Reverb on the Daisy Seed with Allpass Diffusors</h3>
+            <p class="blog-preview-excerpt">A walkthrough of the Schroeder reverb architecture, from the math behind allpass filters to real-time C++ implementation on bare-metal hardware.</p>
+            <span class="blog-preview-read">8 min read →</span>
+          </a>
+
+          <a href="posts/clickhouse-ml-features.html" class="blog-preview-item">
+            <div class="blog-preview-meta">
+              <span class="tag tag--amber">Data Engineering</span>
+              <time class="blog-date" datetime="2025-09-22">Sep 2025</time>
+            </div>
+            <h3 class="blog-preview-title">Using ClickHouse Materialized Views as a Real-Time ML Feature Store</h3>
+            <p class="blog-preview-excerpt">How we replaced a Redis-based feature store with ClickHouse materialized views, reducing latency and operational overhead while scaling to 50M+ events/day.</p>
+            <span class="blog-preview-read">12 min read →</span>
+          </a>
+
+          <a href="posts/jfet-compressor.html" class="blog-preview-item">
+            <div class="blog-preview-meta">
+              <span class="tag">Analog</span>
+              <time class="blog-date" datetime="2025-07-04">Jul 2025</time>
+            </div>
+            <h3 class="blog-preview-title">Designing a Low-Noise JFET Compressor for Guitar</h3>
+            <p class="blog-preview-excerpt">Circuit analysis and LTSpice simulation of a JFET-based compressor optimized for Gilmour-style sustain and minimal noise floor. From schematic to PCB.</p>
+            <span class="blog-preview-read">15 min read →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CONTACT
+    ====================================================== -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container container--narrow">
+        <div class="contact-inner">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title" id="contact-heading">Let's talk</h2>
+          <p class="contact-body">
+            Whether it's a collaboration on ML systems, a circuit design question, or just comparing Gilmour tones —
+            I'm always happy to hear from people building interesting things.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:the.sassan@gmail.com" class="contact-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+              the.sassan@gmail.com
+            </a>
+            <a href="https://github.com/yourusername" class="contact-link" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2026 Sassan &nbsp;·&nbsp; <span style="font-family:var(--font-mono)">v1.0.0</span></p>
+        <ul class="footer-links" role="list">
+          <li><a href="/">Home</a></li>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="mailto:the.sassan@gmail.com">Email</a></li>
+          <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

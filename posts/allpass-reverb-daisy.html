@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a Plate Reverb on the Daisy Seed — Sassan</title>
+  <meta name="description" content="A walkthrough of the Schroeder reverb architecture, from the math behind allpass filters to real-time C++ implementation on the Daisy Seed microcontroller." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=geist@300,400,500,600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23d4870a'/><text x='6' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%230e0d0b'>S</text></svg>" />
+
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="post.css" />
+
+  <script>
+    (function(){
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="../" class="nav-logo">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 18.5 C9 18.5 10.5 20 13 20 C15.5 20 17 18.5 17 17 C17 15.5 15.5 14.5 13 14 C10.5 13.5 9 12.5 9 11 C9 9.5 10.5 8 13 8 C15.5 8 17 9.5 17 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span>sassan</span>
+        </a>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#about">About</a></li>
+          <li><a href="../#work">Work</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Back link -->
+    <div class="container">
+      <a href="../blog/" class="post-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M5 12l7-7M5 12l7 7"/>
+        </svg>
+        All posts
+      </a>
+    </div>
+
+    <article class="post-article" aria-labelledby="post-title">
+      <div class="container container--narrow">
+
+        <!-- Post header -->
+        <header class="post-header">
+          <div class="post-meta-row">
+            <div class="post-tags">
+              <span class="tag tag--green">Tutorial</span>
+              <span class="tag">Embedded / DSP</span>
+            </div>
+            <div class="post-meta-details">
+              <time class="blog-date" datetime="2025-11-10">10 November 2025</time>
+              <span class="post-read-time">8 min read</span>
+            </div>
+          </div>
+          <h1 class="post-title" id="post-title">
+            Building a Plate Reverb on the Daisy Seed with Allpass Diffusors
+          </h1>
+          <p class="post-lead">
+            A walkthrough of the Schroeder reverb architecture, from the math behind allpass
+            filters to real-time C++ implementation on bare-metal hardware. We cover the delay
+            network, diffusion parameters, and the surprisingly tricky pre-delay smoothing.
+          </p>
+        </header>
+
+        <!-- Post body -->
+        <div class="post-body">
+
+          <h2>Why reverb in hardware?</h2>
+          <p>
+            There's something satisfying about reverb that runs entirely in a microcontroller —
+            no latency from USB audio, no driver issues, just audio in and audio out at the
+            speed of the hardware. The Daisy Seed makes this genuinely approachable: it runs
+            at 480 MHz with a hardware floating-point unit and 64 MB of SDRAM for delay buffers.
+          </p>
+          <p>
+            I wanted a plate-style reverb for a Eurorack module: lush, diffuse tail, Gilmour-friendly
+            pre-delay up to around 80ms, and stereo spread from a mono input. The Schroeder
+            architecture from the 1960s is still a solid starting point.
+          </p>
+
+          <h2>The Schroeder architecture</h2>
+          <p>
+            A Schroeder reverb consists of two stages:
+          </p>
+          <ol>
+            <li><strong>Parallel comb filters</strong> — create a dense reflection pattern</li>
+            <li><strong>Series allpass filters</strong> — diffuse the comb filter output to destroy the periodicity</li>
+          </ol>
+          <p>
+            The comb filters are feedback delay lines (FDLs) of different lengths. Each one rings
+            at its own frequency, and the combination of four to six of them creates a pseudo-random
+            reflection density. The problem is that they sound metallic — you can hear the individual
+            pitches. That's where allpass filters come in.
+          </p>
+
+          <h2>Allpass filters as diffusors</h2>
+          <p>
+            An allpass filter has flat magnitude response but non-linear phase. In the context of
+            reverb, it scatters the time domain without changing the frequency content. The transfer
+            function is:
+          </p>
+
+          <div class="post-math">
+            <code>H(z) = (-g + z⁻ᴺ) / (1 - g·z⁻ᴺ)</code>
+          </div>
+
+          <p>
+            Where <code>N</code> is the delay length in samples and <code>g</code> is the feedback
+            gain (typically 0.5–0.7 for musical diffusion). The implementation in C++ on the Daisy
+            is straightforward:
+          </p>
+
+          <pre><code>class AllpassFilter {
+  float* buf;
+  int size, writeIdx;
+  float g;
+
+public:
+  AllpassFilter(float* buffer, int delaySamples, float gain)
+    : buf(buffer), size(delaySamples), writeIdx(0), g(gain) {
+    memset(buf, 0, sizeof(float) * size);
+  }
+
+  float process(float in) {
+    float delayed = buf[writeIdx];
+    float output  = -g * in + delayed;
+    buf[writeIdx] = in + g * delayed;
+    writeIdx = (writeIdx + 1) % size;
+    return output;
+  }
+};</code></pre>
+
+          <h2>Choosing delay lengths</h2>
+          <p>
+            The delay lengths for both comb and allpass stages should be mutually prime — no
+            common factors — to avoid modal clustering. For a 48 kHz sample rate, good comb
+            lengths are around 1557, 1617, 1491, 1422, 1277, and 1356 samples. These correspond
+            to roughly 30–35 ms, which gives the natural pre-diffusion ring of a plate reverberator.
+          </p>
+          <p>
+            For allpass stages, shorter delays work better: 225, 341, and 441 samples (roughly 5–9 ms).
+            Three stages gives good diffusion without excessive computation.
+          </p>
+
+          <h2>The pre-delay challenge</h2>
+          <p>
+            Plate reverbs have a short pre-delay between the dry signal and the reverb tail —
+            typically 5–30 ms. On the Daisy this is just a circular buffer. The tricky part
+            is <em>smoothing parameter changes</em>: if you change the pre-delay time while audio
+            is playing, you get a pitch shift artifact as the read pointer jumps. The solution
+            is to interpolate the read pointer, or better: crossfade between old and new delay lengths
+            over about 50 ms.
+          </p>
+
+          <pre><code>// Crossfade during pre-delay change
+void setPreDelay(float ms) {
+  int targetSamples = (int)(ms * SAMPLE_RATE / 1000.f);
+  if (abs(targetSamples - currentSamples) > 2) {
+    crossfadeTarget = targetSamples;
+    crossfadeProgress = 0.f;
+  }
+}</code></pre>
+
+          <h2>Putting it all together</h2>
+          <p>
+            The full signal path is:
+          </p>
+          <ol>
+            <li>Input → Pre-delay buffer</li>
+            <li>Pre-delayed signal → 6 parallel comb filters (summed)</li>
+            <li>Comb sum → 3 series allpass filters</li>
+            <li>Allpass output → Stereo spread (L/R with slight time offset)</li>
+            <li>Wet/dry mix with input</li>
+          </ol>
+          <p>
+            The total compute budget on the Daisy at 48 kHz / 48-sample block size is around
+            1 ms. This algorithm runs in about 0.3 ms, leaving plenty of headroom for chorus
+            or other effects on the same hardware.
+          </p>
+
+          <h2>Final notes</h2>
+          <p>
+            For a plate reverb specifically, the character lives in the diffusion density.
+            Increase <code>g</code> on the allpass stages toward 0.7 and you get a smoother,
+            denser tail. Decrease the comb lengths slightly for a brighter, more present reverb.
+            I've been using this module with a sustainer pickup and a long pre-delay (around
+            60 ms) for a very Gilmour-ish shimmer that sounds nothing like a digital unit.
+          </p>
+          <p>
+            The full module code is on GitHub. Next up: adding a shimmer pitch-shift voice by
+            routing the allpass output through a granular pitch shifter before feeding back.
+          </p>
+
+        </div><!-- /post-body -->
+
+        <!-- Related posts -->
+        <aside class="post-related" aria-label="Related posts">
+          <h2 class="post-related-title">Related</h2>
+          <div class="post-related-list">
+            <a href="#" class="post-related-item">
+              <span class="tag tag--green">Embedded / DSP</span>
+              <span class="post-related-name">ESP32 as a MIDI-Controlled Effects Processor</span>
+            </a>
+            <a href="jfet-compressor.html" class="post-related-item">
+              <span class="tag">Analog</span>
+              <span class="post-related-name">Designing a Low-Noise JFET Compressor for Guitar</span>
+            </a>
+          </div>
+        </aside>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2026 Sassan</p>
+        <ul class="footer-links" role="list">
+          <li><a href="../">Home</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="mailto:the.sassan@gmail.com">Email</a></li>
+          <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
