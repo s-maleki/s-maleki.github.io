@@ -11,7 +11,7 @@
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-16);
+  gap: clamp(var(--space-12), 6vw, var(--space-24));
   align-items: center;
 }
 
@@ -153,7 +153,7 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .hero-inner {
     grid-template-columns: 1fr;
   }
@@ -178,7 +178,7 @@
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: var(--space-16);
+  gap: clamp(var(--space-10), 5vw, var(--space-24));
   align-items: start;
 }
 
@@ -202,7 +202,7 @@
   font-size: var(--text-xs);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .about-grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -220,7 +220,7 @@
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-5);
   margin-top: var(--space-10);
 }
 
@@ -265,7 +265,7 @@
   gap: var(--space-2);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -293,7 +293,7 @@
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-5);
 }
 
 .work-card {
