@@ -173,19 +173,19 @@
 .resume-talks {
   display: flex;
   flex-direction: column;
+  gap: var(--space-5);
 }
 
 .resume-talk {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: var(--space-2) var(--space-8);
-  padding: var(--space-4) 0;
-  border-bottom: 1px solid var(--color-border);
-  align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
-.resume-talk:last-child {
-  border-bottom: none;
+.resume-talk__title {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 .resume-talk__meta {
@@ -196,16 +196,11 @@
 }
 
 .resume-talk__venue {
-  display: block;
-  font-size: var(--text-xs);
-  color: var(--color-text-faint);
-  margin-top: var(--space-1);
+  display: inline;
 }
 
-.resume-talk__title {
-  font-size: var(--text-sm);
-  color: var(--color-text);
-  font-weight: 500;
+.resume-talk__venue::before {
+  content: ' · ';
 }
 
 /* ── Responsive ── */
@@ -240,12 +235,6 @@
     align-items: baseline;
     gap: var(--space-3);
     flex-wrap: wrap;
-  }
-
-  .resume-talk {
-    grid-template-columns: 1fr;
-    gap: var(--space-1);
-    padding: var(--space-3) 0;
   }
 
   .resume-awards {
