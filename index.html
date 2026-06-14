@@ -53,6 +53,7 @@
           <li><a href="/" aria-current="page">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#work">Work</a></li>
+          <li><a href="#research">Research</a></li>
           <li><a href="blog/">Blog</a></li>
           <li><a href="publications/">Publications</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -189,20 +190,27 @@
           </div>
           <div class="about-right">
             <p class="about-body">
-              I hold a PhD in Computer Science with a focus on artificial intelligence, and lead a
-              data science &amp; AI team at a fintech company working on credit and BNPL products.
-              Day-to-day I work across ML systems, LLM integrations, ClickHouse &amp; PostgreSQL pipelines,
-              and Kafka-based data infrastructure.
+              I hold a PhD in Computer Science (AI) from the University of Southampton, where I worked
+              in the <a href="https://www.ecs.soton.ac.uk/research/groups/agents" target="_blank" rel="noopener">Agents, Interaction &amp; Complexity group</a>
+              under Prof. Nick Jennings. My doctoral research focused on the computational challenges
+              of the Shapley value and its applications in smart grid coalition formation.
             </p>
             <p class="about-body">
-              Outside the office, I design and build analog circuits — guitar effects, tube amplifier stages,
-              and synthesizer modules. I write firmware for ESP32 and Daisy Seed microcontrollers
-              with a focus on real-time audio DSP. The same signal-processing intuition that informs
-              my ML work shows up in how I think about filter design and harmonic generation.
+              During my time at Southampton I was part of the <a href="https://www.horizon.ac.uk/project/orchid/" target="_blank" rel="noopener">ORCHID programme grant</a> —
+              a £10m EPSRC project across Southampton, Oxford, and Nottingham building human-agent
+              collectives for smart energy and disaster response. I developed demand prediction
+              and home heating optimisation algorithms, and competed in the IJCAI Power Trading
+              Agent Competition with teams IAMPower and SotonPower, winning 4 out of 5 games.
             </p>
             <p class="about-body">
-              I play electric guitar in the spirit of David Gilmour — long, sustained notes over
-              carefully crafted effects chains. Some of those effects I built myself.
+              I now lead a data science &amp; AI team at a fintech company focused on credit and BNPL
+              products, working across ML systems, LLM integrations, ClickHouse &amp; PostgreSQL
+              pipelines, and Kafka-based infrastructure.
+            </p>
+            <p class="about-body">
+              Outside work I design analog circuits — guitar effects, tube amplifier stages, synthesizer
+              modules — and write DSP firmware for ESP32 and Daisy Seed. I play electric guitar
+              in the spirit of David Gilmour. Some of the effects I play through, I built myself.
             </p>
             <div class="about-links">
               <a href="#contact" class="btn btn--ghost btn--sm">
@@ -328,7 +336,7 @@
       <div class="container">
         <div class="work-header">
           <div>
-            <p class="section-label">Featured Work</p>
+            <p class="section-label">Current Work</p>
             <h2 class="section-title" id="work-heading">Selected projects</h2>
           </div>
           <a href="blog/" class="btn btn--ghost">View all posts →</a>
@@ -396,6 +404,126 @@
               <span class="work-date">2024</span>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================================================
+         RESEARCH PROJECTS
+    ====================================================== -->
+    <section class="section research-section" id="research" aria-labelledby="research-heading">
+      <div class="container">
+        <div class="work-header">
+          <div>
+            <p class="section-label">Academic Research</p>
+            <h2 class="section-title" id="research-heading">PhD &amp; research projects</h2>
+          </div>
+          <a href="publications/" class="btn btn--ghost">All publications &rarr;</a>
+        </div>
+
+        <!-- ORCHID — featured with video placeholder -->
+        <article class="research-card research-card--featured" aria-labelledby="orchid-heading">
+          <div class="research-card-body">
+            <div class="work-card-label">
+              <span class="tag tag--amber">EPSRC Programme Grant</span>
+              <span class="tag">Human-Agent Collectives</span>
+              <span class="tag">Smart Grid</span>
+            </div>
+            <h3 class="work-card-title" id="orchid-heading">ORCHID &mdash; Human-Agent Collectives for Smart Energy &amp; Disaster Response</h3>
+            <p class="work-card-body">
+              Part of the &pound;10m EPSRC-funded ORCHID project (Universities of Southampton, Oxford &amp; Nottingham,
+              led by Prof. Nick Jennings). The project built computational systems in which software agents
+              and people interact at scale &mdash; applied to smart grid demand management and disaster response coordination.
+              I contributed demand prediction algorithms, home heating optimisation agents, and Shapley-value-based
+              methods for fair cost allocation among energy-sharing households.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2011&ndash;2016 &middot; University of Southampton</span>
+              <a href="https://www.horizon.ac.uk/project/orchid/" class="work-card-link" target="_blank" rel="noopener">Project page &rarr;</a>
+            </div>
+          </div>
+          <!-- Video placeholder -->
+          <div class="research-video-placeholder" aria-label="ORCHID project video — coming soon">
+            <div class="video-placeholder-inner">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/>
+              </svg>
+              <p class="video-placeholder-label">ORCHID project video</p>
+              <p class="video-placeholder-sub">Coming soon</p>
+            </div>
+          </div>
+        </article>
+
+        <div class="work-grid research-sub-grid">
+
+          <article class="work-card">
+            <div class="work-card-label">
+              <span class="tag tag--green">Smart Thermostat</span>
+              <span class="tag">Gaussian Process</span>
+            </div>
+            <h3 class="work-card-title">Intelligent Home Heating via Gaussian Process Prediction</h3>
+            <p class="work-card-body">
+              Developed an intelligent thermostat that minimises carbon intensity while satisfying
+              temperature preferences. Uses a multi-output Gaussian process &mdash; with a custom cross-covariance
+              function for demand and carbon intensity &mdash; achieving 42% better prediction accuracy than
+              linear regression. Scheduling is solved as a binary programme over the thermal model of the house.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2010&ndash;2013 &middot; University of Southampton</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-card-label">
+              <span class="tag tag--amber">Power Trading Agent</span>
+              <span class="tag">IJCAI 2011</span>
+            </div>
+            <h3 class="work-card-title">IAMPower &amp; SotonPower &mdash; Energy Tariff Bidding Agents</h3>
+            <p class="work-card-body">
+              Member of the IAMPower and SotonPower teams for the IJCAI 2011 Power Trading Agent
+              Competition. Responsible for demand prediction algorithms and optimal bidding strategies.
+              The agent won 4 out of 5 games in the tournament.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2011 &middot; IJCAI</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-card-label">
+              <span class="tag">BT Research</span>
+              <span class="tag">Citizen Science</span>
+            </div>
+            <h3 class="work-card-title">Energy Perception Quiz &mdash; BT Research Collaboration</h3>
+            <p class="work-card-body">
+              In collaboration with BT Research, designed and built an online game-like quiz to collect
+              data on people&rsquo;s perception of energy consumption and savings. Led the scientific
+              research and back-end development, and managed a team of front-end developers.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2012&ndash;2013 &middot; BT Research / Southampton</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <div class="work-card-label">
+              <span class="tag tag--green">Game Theory</span>
+              <span class="tag">Cooperative AI</span>
+            </div>
+            <h3 class="work-card-title">Shapley Value Approximation for Smart Grid Coalition Formation</h3>
+            <p class="work-card-body">
+              Doctoral research on bounding the estimation error of sampling-based Shapley value
+              approximation &mdash; with and without stratification &mdash; and applying these methods to fair
+              cost allocation in smart grid demand-response coalitions. 170+ citations.
+            </p>
+            <div class="work-card-footer">
+              <span class="work-date">2011&ndash;2015 &middot; PhD Thesis</span>
+              <a href="publications/" class="work-card-link">Publications &rarr;</a>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>

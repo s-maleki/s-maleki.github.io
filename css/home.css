@@ -492,3 +492,94 @@
   border-color: oklch(from var(--color-primary) l c h / 0.4);
   background: var(--color-primary-highlight);
 }
+
+/* ============================================================
+   RESEARCH SECTION
+   ============================================================ */
+
+.research-section {
+  border-top: 1px solid var(--color-divider);
+}
+
+.research-sub-grid {
+  margin-top: var(--space-5);
+}
+
+/* ORCHID featured card — side-by-side with video */
+.research-card--featured {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid oklch(from var(--color-primary) l c h / 0.25);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-5);
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+}
+
+.research-card--featured:hover {
+  border-color: oklch(from var(--color-primary) l c h / 0.45);
+  box-shadow: var(--shadow-md);
+}
+
+.research-card-body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Video placeholder */
+.research-video-placeholder {
+  background: var(--color-surface-offset);
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  cursor: default;
+}
+
+.video-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+  padding: var(--space-6);
+  color: var(--color-text-faint);
+}
+
+.video-placeholder-inner svg {
+  opacity: 0.4;
+}
+
+.video-placeholder-label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.video-placeholder-sub {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px dashed var(--color-border);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 860px) {
+  .research-card--featured {
+    grid-template-columns: 1fr;
+  }
+  .research-video-placeholder {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    min-height: 160px;
+  }
+}
