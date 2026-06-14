@@ -24,7 +24,7 @@ Built for GitHub Pages — static HTML/CSS/JS, no build step required.
 
 Push to a GitHub repo and enable GitHub Pages from Settings → Pages → Deploy from branch (main, root).
 
-The site will be live at `https://<yourusername>.github.io` (for a user site) or `https://<yourusername>.github.io/<repo-name>` for a project site.
+The site will be live at `https://s-maleki.github.io` (for a user site) or `https://s-maleki.github.io/<repo-name>` for a project site.
 
 ## Adding a new post
 
@@ -35,7 +35,7 @@ The site will be live at `https://<yourusername>.github.io` (for a user site) or
 
 ## Customization
 
-- Update your name/username/GitHub URL throughout (search for `yourusername`)
+
 
 - All colors are in `css/tokens.css` — change `--color-primary` to shift the accent color
 - Fonts are loaded via Google Fonts + Fontshare CDN in each HTML file's `<head>`
