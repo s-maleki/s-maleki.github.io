@@ -1,0 +1,240 @@
+/* ============================================================
+   PUBLICATIONS PAGE
+   ============================================================ */
+
+.pub-header {
+  padding-block: clamp(var(--space-12), 8vw, var(--space-24)) var(--space-10);
+  border-bottom: 1px solid var(--color-divider);
+  margin-bottom: var(--space-12);
+}
+
+.pub-main-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-block: var(--space-4) var(--space-4);
+}
+
+.pub-main-sub {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  max-width: 60ch;
+  margin-bottom: var(--space-8);
+}
+
+/* Stats strip */
+.pub-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+}
+
+.pub-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.pub-stat-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.pub-stat-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.pub-stat-divider {
+  width: 1px;
+  height: 2rem;
+  background: var(--color-divider);
+  flex-shrink: 0;
+}
+
+/* Filter buttons — reuse from blog */
+.pub-filters {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-interactive);
+  letter-spacing: 0.03em;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+  background: var(--color-surface-offset);
+}
+
+.filter-btn--active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-highlight);
+}
+
+/* ============================================================
+   YEAR-GROUPED LIST
+   ============================================================ */
+
+.pub-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
+}
+
+.pub-year-group {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.pub-year-marker {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  letter-spacing: 0.06em;
+  padding-top: var(--space-5);
+  position: sticky;
+  top: calc(3.75rem + var(--space-4));
+}
+
+.pub-year-group[hidden] {
+  display: none;
+}
+
+.pub-year-papers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ============================================================
+   PAPER CARD
+   ============================================================ */
+
+.pub-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive), transform var(--transition-interactive);
+}
+
+.pub-card:hover {
+  border-color: oklch(from var(--color-primary) l c h / 0.4);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.pub-card[hidden] {
+  display: none;
+}
+
+.pub-card-inner {
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.pub-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.pub-citations {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  margin-left: auto;
+}
+
+.pub-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.pub-card-title a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-interactive);
+}
+
+.pub-card-title a:hover {
+  color: var(--color-primary);
+}
+
+.pub-card-authors {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.pub-card-venue {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  font-family: var(--font-mono);
+  line-height: 1.5;
+}
+
+.pub-card-venue em {
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   FOOTER CTA
+   ============================================================ */
+
+.pub-footer-cta {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-8) var(--space-16);
+  border-top: 1px solid var(--color-divider);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 560px) {
+  .pub-year-group {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .pub-year-marker {
+    position: static;
+    padding-top: 0;
+  }
+
+  .pub-stat-divider { display: none; }
+}

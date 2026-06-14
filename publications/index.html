@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — Sassan</title>
+  <meta name="description" content="Academic publications by Sasan Maleki. Research in anomaly detection, Shapley value approximation, cooperative game theory, and smart energy systems." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=geist@300,400,500,600&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23d4870a'/><text x='6' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%230e0d0b'>S</text></svg>" />
+
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="publications.css" />
+
+  <script>
+    (function(){
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="../" class="nav-logo">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 18.5 C9 18.5 10.5 20 13 20 C15.5 20 17 18.5 17 17 C17 15.5 15.5 14.5 13 14 C10.5 13.5 9 12.5 9 11 C9 9.5 10.5 8 13 8 C15.5 8 17 9.5 17 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span>sassan</span>
+        </a>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="../">Home</a></li>
+          <li><a href="../#about">About</a></li>
+          <li><a href="../#work">Work</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="./" aria-current="page">Publications</a></li>
+          <li><a href="../#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Page header -->
+      <div class="pub-header">
+        <p class="section-label">Research</p>
+        <h1 class="pub-main-title">Publications</h1>
+        <p class="pub-main-sub">
+          Academic work spanning anomaly detection, cooperative game theory, Shapley value approximation,
+          and smart energy systems. Full profile on
+          <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+        </p>
+
+        <!-- Stats strip -->
+        <div class="pub-stats" role="list">
+          <div class="pub-stat" role="listitem">
+            <span class="pub-stat-value">12</span>
+            <span class="pub-stat-label">Publications</span>
+          </div>
+          <div class="pub-stat-divider" aria-hidden="true"></div>
+          <div class="pub-stat" role="listitem">
+            <span class="pub-stat-value">618</span>
+            <span class="pub-stat-label">Citations</span>
+          </div>
+          <div class="pub-stat-divider" aria-hidden="true"></div>
+          <div class="pub-stat" role="listitem">
+            <span class="pub-stat-value">2010–2021</span>
+            <span class="pub-stat-label">Years active</span>
+          </div>
+        </div>
+
+        <!-- Filter -->
+        <div class="pub-filters" role="group" aria-label="Filter publications by topic">
+          <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="anomaly">Anomaly Detection</button>
+          <button class="filter-btn" data-filter="shapley">Shapley / Game Theory</button>
+          <button class="filter-btn" data-filter="energy">Smart Energy</button>
+        </div>
+      </div>
+
+      <!-- Publications list -->
+      <ol class="pub-list" id="pub-list" reversed>
+
+        <!-- 2021 -->
+        <li class="pub-year-group" data-year="2021">
+          <span class="pub-year-marker">2021</span>
+          <div class="pub-year-papers">
+
+            <article class="pub-card" data-topic="anomaly">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag tag--amber">Anomaly Detection</span>
+                  <span class="tag">Machine Learning</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    178
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    Unsupervised anomaly detection with LSTM autoencoders using statistical data-filtering
+                  </a>
+                </h2>
+                <p class="pub-card-authors">S Maleki, S Maleki, NR Jennings</p>
+                <p class="pub-card-venue">
+                  <em>Applied Soft Computing</em> 108, 107443
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </li>
+
+        <!-- 2020 -->
+        <li class="pub-year-group" data-year="2020">
+          <span class="pub-year-marker">2020</span>
+          <div class="pub-year-papers">
+
+            <article class="pub-card" data-topic="shapley">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag tag--green">Shapley / Game Theory</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    20
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    The Shapley value for a fair division of group discounts for coordinating cooling loads
+                  </a>
+                </h2>
+                <p class="pub-card-authors">S Maleki, T Rahwan, S Ghosh, A Malibari, D Alghazzawi, A Rogers, NR Jennings</p>
+                <p class="pub-card-venue">
+                  <em>PloS ONE</em> 15 (1), e0227049
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </li>
+
+        <!-- 2017 -->
+        <li class="pub-year-group" data-year="2017">
+          <span class="pub-year-marker">2017</span>
+          <div class="pub-year-papers">
+
+            <article class="pub-card" data-topic="energy">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag">Smart Energy</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    8
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    Advanced economic control of electricity-based space heating systems in domestic coalitions with shared intermittent energy resources
+                  </a>
+                </h2>
+                <p class="pub-card-authors">AA Panagopoulos, S Maleki, A Rogers, M Venanzi, NR Jennings</p>
+                <p class="pub-card-venue">
+                  <em>ACM Transactions on Intelligent Systems and Technology (TIST)</em> 8 (4), 1–27
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </li>
+
+        <!-- 2015 -->
+        <li class="pub-year-group" data-year="2015">
+          <span class="pub-year-marker">2015</span>
+          <div class="pub-year-papers">
+
+            <article class="pub-card" data-topic="shapley">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag tag--green">Shapley / Game Theory</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    63
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    Addressing the computational issues of the Shapley value with applications in the smart grid
+                  </a>
+                </h2>
+                <p class="pub-card-authors">S Maleki</p>
+                <p class="pub-card-venue">
+                  <em>PhD Thesis</em>, University of Southampton
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </li>
+
+        <!-- 2013 -->
+        <li class="pub-year-group" data-year="2013">
+          <span class="pub-year-marker">2013</span>
+          <div class="pub-year-papers">
+
+            <article class="pub-card" data-topic="shapley">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag tag--green">Shapley / Game Theory</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    158
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://arxiv.org/abs/1306.4265" target="_blank" rel="noopener">
+                    Bounding the estimation error of sampling-based Shapley value approximation
+                  </a>
+                </h2>
+                <p class="pub-card-authors">S Maleki, L Tran-Thanh, G Hines, T Rahwan, A Rogers</p>
+                <p class="pub-card-venue">
+                  <em>arXiv preprint</em> arXiv:1306.4265
+                </p>
+              </div>
+            </article>
+
+            <article class="pub-card" data-topic="shapley">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag tag--green">Shapley / Game Theory</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    52
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://arxiv.org/abs/1306.4265" target="_blank" rel="noopener">
+                    Bounding the estimation error of sampling-based Shapley value approximation with/without stratifying
+                  </a>
+                </h2>
+                <p class="pub-card-authors">S Maleki, L Tran-Thanh, G Hines, T Rahwan, A Rogers</p>
+                <p class="pub-card-venue">
+                  <em>CoRR</em>, abs/1306.4265 2 (1)
+                </p>
+              </div>
+            </article>
+
+            <article class="pub-card" data-topic="energy">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag">Smart Energy</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    22
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    AgentSwitch: Towards smart energy tariff selection
+                  </a>
+                </h2>
+                <p class="pub-card-authors">SD Ramchurn, M Osborne, O Parson, T Rahwan, S Maleki, S Reece, et al.</p>
+                <p class="pub-card-venue">
+                  <em>Proceedings of the 12th International Conference on Autonomous Agents and Multi-Agent Systems (AAMAS)</em>
+                </p>
+              </div>
+            </article>
+
+            <article class="pub-card" data-topic="energy">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag">Smart Energy</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    6
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    AgentSwitch: Towards smart electricity tariff selection
+                  </a>
+                </h2>
+                <p class="pub-card-authors">S Ramchurn, M Osborne, O Parson, T Rahwan, S Maleki, S Reece, et al.</p>
+                <p class="pub-card-venue">
+                  <em>AAMAS 2013 Workshop Proceedings</em>
+                </p>
+              </div>
+            </article>
+
+            <article class="pub-card" data-topic="shapley">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag tag--green">Shapley / Game Theory</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    7
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://arxiv.org/abs/1306.4265" target="_blank" rel="noopener">
+                    Bounding the Estimation Error of Sampling-based Shapley Value Approximation With/Without Stratifying
+                  </a>
+                </h2>
+                <p class="pub-card-authors">S Maleki, L Tran-Thanh, G Hines, T Rahwan, A Rogers</p>
+                <p class="pub-card-venue">
+                  <em>arXiv preprint</em> arXiv:1306.4265
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </li>
+
+        <!-- 2012 -->
+        <li class="pub-year-group" data-year="2012">
+          <span class="pub-year-marker">2012</span>
+          <div class="pub-year-papers">
+
+            <article class="pub-card" data-topic="energy">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag">Smart Energy</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    4
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    An intelligent agent for home heating management
+                  </a>
+                </h2>
+                <p class="pub-card-authors">A Rogers, S Maleki, S Ghosh, NR Jennings</p>
+                <p class="pub-card-venue">
+                  <em>Proceedings of the 11th International Conference on Autonomous Agents and Multi-Agent Systems (AAMAS)</em>
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </li>
+
+        <!-- 2011 -->
+        <li class="pub-year-group" data-year="2011">
+          <span class="pub-year-marker">2011</span>
+          <div class="pub-year-papers">
+
+            <article class="pub-card" data-topic="energy">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag">Smart Energy</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    99
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    Adaptive home heating control through Gaussian process prediction and mathematical programming
+                  </a>
+                </h2>
+                <p class="pub-card-authors">A Rogers, S Maleki, S Ghosh, NR Jennings</p>
+                <p class="pub-card-venue">
+                  <em>Proceedings of the 2nd International Workshop on Agent Technology for Energy Systems (ATES)</em>
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </li>
+
+        <!-- 2010 -->
+        <li class="pub-year-group" data-year="2010">
+          <span class="pub-year-marker">2010</span>
+          <div class="pub-year-papers">
+
+            <article class="pub-card" data-topic="energy">
+              <div class="pub-card-inner">
+                <div class="pub-card-meta">
+                  <span class="tag">Smart Energy</span>
+                  <span class="pub-citations">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    1
+                  </span>
+                </div>
+                <h2 class="pub-card-title">
+                  <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener">
+                    Gaussian Process Regression for Carbon Emissions from Heating and Cooling Loads
+                  </a>
+                </h2>
+                <p class="pub-card-authors">S Maleki</p>
+                <p class="pub-card-venue">
+                  <em>MSc Thesis</em>, University of Southampton
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </li>
+
+      </ol>
+
+      <!-- Scholar link -->
+      <div class="pub-footer-cta">
+        <a href="https://scholar.google.com/citations?user=Qnr63bYAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn--ghost">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 15.036 15 17.8 15 21v1h-2v-1c0-3.2-2.548-5.964-3.758-7.231zM12 3.19 3.81 9.5 7.5 12.5c.67-1.5 2.5-2.5 4.5-2.5s3.83 1 4.5 2.5l3.69-3-8.19-6.31zM12 13c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          View full profile on Google Scholar
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2026 Sassan</p>
+        <ul class="footer-links" role="list">
+          <li><a href="../">Home</a></li>
+          <li><a href="../blog/">Blog</a></li>
+          <li><a href="./">Publications</a></li>
+          <li><a href="https://github.com/s-maleki" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="publications.js"></script>
+</body>
+</html>
