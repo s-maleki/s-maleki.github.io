@@ -36,6 +36,6 @@ The site will be live at `https://<yourusername>.github.io` (for a user site) or
 ## Customization
 
 - Update your name/username/GitHub URL throughout (search for `yourusername`)
-- Update `the.sassan@gmail.com` if you want a different contact email
+
 - All colors are in `css/tokens.css` — change `--color-primary` to shift the accent color
 - Fonts are loaded via Google Fonts + Fontshare CDN in each HTML file's `<head>`
